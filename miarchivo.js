@@ -1,4 +1,8 @@
 
+respuesta = prompt("Bienvenido a Gaming Shop, por favor dinos tu nombre!")
+
+alert("Bienvenido " + respuesta + ", esperemos que disfrutes de nuestra pagina !")
+
 
 function returnCardHTML(products) {
   return `<div class="div-card">
@@ -22,8 +26,8 @@ function addProdCart() {
         btn.addEventListener("click", ()=> {
             let product = products.find((products)=> products.id === parseInt(btn.id))
             shoppingCart.push(product)
-            alert(product)
             console.table(shoppingCart)
+            alert (product.name + " ha sigo agregado al carrito!" )
             
         })
     })
@@ -45,10 +49,18 @@ function buy() {
   btn.forEach((button)=> {
     button.addEventListener("click", ()=> { 
       (shoppingCart.length > 0) 
-      alert ("Usted ha comprado por una valor total de $" + shoppingCart.reduce((acc, products)=> acc + products.precio, 0))
+      alert ("Usted ha comprado por una valor total de $" + shoppingCart.reduce((acc, products)=> acc + products.price, 0))
+      confirm ("Si desea comprar algo mas por favor indice 'confirmar'")
+      if (confirm = true) {
+        alert("perfecto " + respuesta + ", puede seguir agregando productos al carrito de compra!")
+      }
+       else {
+        alert("fue un gusto atenderte " + respuesta +"! esperamos verte pronto.")
+        
+       }
     }) 
   })
-}
+}""
 
 addProducts(products)
 
